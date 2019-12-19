@@ -139,4 +139,6 @@ class  StudentController extends Controller
             return response()->json($student->saved_posts, 200);
         }
     }
+
+
 }

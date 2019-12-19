@@ -26,7 +26,8 @@ class RegisterController
         $student->uni_code=$request->uni_code;
         $student->password=Hash::make($request->password);
         $student->username=$request->username;
-        $student->api_token=Str::random(60);
+        $api_token=Str::random(60);
+        $student->api_token=$api_token;
         $student->timestamps;
         $file=$request->file('profile_uri');
         $im_name='st_pr_im_'.uniqid().'.jpg';
@@ -35,7 +36,7 @@ class RegisterController
             $student->profile_uri=public_path('\st_img'.$im_name);
         }
         if ($student->save()){
-            return response()->json(['response'=>'success'], 200);
+            return response()->json(['response'=>$api_token], 200);
         }else{
             return response()->json(['response'=>'failure'], 500);
         }

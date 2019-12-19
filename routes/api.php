@@ -26,6 +26,7 @@ Route::resource('student', 'Api\StudentController');
 Route::get('student/{id}/posts', 'Api\StudentController@get_posts');
 Route::get('student/search/{keyword}', 'Api\StudentController@search');
 Route::get('student/checkt/{id}', 'Api\StudentController@check_token');
+Route::get('student/saved/{id}', 'Api\StudentController@get_saved_posts');
 
 Route::resource('post', 'Api\PostController');
 Route::get('unoffical/student/{id}/posts', 'Api\PostController@get_posts_of_st');
@@ -36,6 +37,8 @@ Route::get('post/comments/{id}', 'Api\PostController@get_comments');
 Route::resource('like', 'Api\LikeController');
 Route::get('like/{student_id}/{post_id}', 'Api\LikeController@is_liked');
 Route::get('like/get_like/{student_id}/{post_id}','Api\LikeController@get_like' );
+
+
 Route::get('like/comments/{id}', 'Api\LikeController@get_comments');
 
 Route::post('follow', 'Api\FollowController@follow');
@@ -47,3 +50,5 @@ Route::get('follow/{follower_id}/{following_id}', 'Api\FollowController@is_follo
 Route::post('comment', 'Api\CommentController@store');
 Route::delete('comment/{id}', 'Api\CommentController@delete');
 
+Route::post('savedpost' , 'Api\SavedPostsController@store');
+Route::delete('savedpost/{id}', 'Api\SavedPostsController@destroy');
