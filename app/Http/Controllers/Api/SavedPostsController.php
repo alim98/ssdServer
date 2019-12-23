@@ -31,9 +31,10 @@ class SavedPostsController extends Controller
         }
     }
 
-    public function destroy($id, Request $request)
+    public function destroy($st_id, $post_id, Request $request)
     {
-        $sp = SavedPost::where('saved_id', $id)->first();
+        $matchThese=['student_id'=>$st_id, 'post_id'=>$post_id];
+        $sp = SavedPost::where($matchThese)->first();
         $student_id = $sp->student_id;
         $student = Student::where('phone_number', $student_id)->first();
         $header = $request->bearerToken();
@@ -49,4 +50,22 @@ class SavedPostsController extends Controller
         }
     }
 
+    public function check($st_id, $post_id, Request $request)
+    {
+        $student = Student::where('phone_number', $st_id)->first();
+        if($student!=null){
+            $header = $request->bearerToken();
+            if ($header==$student->api_token){
+                $matchThese=['student_id'=>$st_id, 'post_id'=>$post_id];
+                $sp=SavedPost::where($matchThese)->first();
+                if($sp!=null){
+                    return response()->json(['success'=>true], 200);
+                }else{
+                    return response()->json(['success'=>false], 500);
+                }
+            }else{
+                return response()->json(['success'=>false], 442);
+            }
+        }
+    }
 }

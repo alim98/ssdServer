@@ -51,4 +51,5 @@ Route::post('comment', 'Api\CommentController@store');
 Route::delete('comment/{id}', 'Api\CommentController@delete');
 
 Route::post('savedpost' , 'Api\SavedPostsController@store');
-Route::delete('savedpost/{id}', 'Api\SavedPostsController@destroy');
+Route::delete('savedpost/{st_id}/{post_id}', 'Api\SavedPostsController@destroy');
+Route::get('savedpost/check/{st_id}/{post_id}', 'Api\SavedPostsController@check');

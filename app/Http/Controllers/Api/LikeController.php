@@ -42,8 +42,8 @@ class LikeController extends Controller
         $like->like_id=uniqid();
         $like->post_id=$request->post_id;
         $like->student_id=$request->student_id;
-        $check=$like->where(['post_id'=>$like->post_id ],
-            ['student_id'=>$like->student_id])->first();
+        $matchthese=['post_id'=>$request->post_id, 'student_id'=>$request->student_id];
+        $check=$like->where($matchthese)->first();
         if ($check==null)
         {
             if ($like->save()){
@@ -113,8 +113,9 @@ class LikeController extends Controller
 
     public function is_liked($student_id,$post_id)
     {
-        $like=Like::where(['post_id'=>  $post_id],
-            ['student_id'=> $student_id])->first();
+        $matchthese=['post_id'=>$post_id, 'student_id'=>$student_id];
+
+        $like=Like::where($matchthese)->first();
         if ($like!=null){
             return response()->json(['is_liked'=>true], 200);
         }else{
@@ -124,8 +125,9 @@ class LikeController extends Controller
 
     public function get_like($student_id, $post_id)
     {
-        $like=Like::where(['post_id'=>  $post_id],
-            ['student_id'=> $student_id])->first();
+        $matchthese=['post_id'=>$post_id, 'student_id'=>$student_id];
+
+        $like=Like::where($matchthese)->first();
         if($like!=null)
         {
            return response()->json(['response'=>$like->like_id], 200);

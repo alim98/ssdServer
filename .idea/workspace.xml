@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52992def-ccda-4464-893a-67d3bef8bf4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_27_220313_create_uni_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_30_175623_create_jozve_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_05_084850_create_like_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_090830_create_follow_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_13_192713_create_comments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_17_200327_create_student_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_19_123514_create_savedposts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/SavedPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SavedPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SavedPostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SavedPostsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -171,6 +161,10 @@
       <workItem from="1576664314152" duration="755000" />
       <workItem from="1576770196899" duration="250000" />
       <workItem from="1576774577494" duration="3282000" />
+      <workItem from="1576777970063" duration="73000" />
+      <workItem from="1576863086904" duration="6092000" />
+      <workItem from="1577001370911" duration="1394000" />
+      <workItem from="1577133331213" duration="491000" />
     </task>
     <servers />
   </component>
@@ -182,7 +176,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
