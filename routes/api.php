@@ -35,6 +35,7 @@ Route::get('post/comments/{id}', 'Api\PostController@get_comments');
 
 
 Route::resource('like', 'Api\LikeController');
+Route::delete('like/{student_id}/{post_id}','Api\LikeController@destroy');
 Route::get('like/{student_id}/{post_id}', 'Api\LikeController@is_liked');
 Route::get('like/get_like/{student_id}/{post_id}','Api\LikeController@get_like' );
 
@@ -53,3 +54,7 @@ Route::delete('comment/{id}', 'Api\CommentController@delete');
 Route::post('savedpost' , 'Api\SavedPostsController@store');
 Route::delete('savedpost/{st_id}/{post_id}', 'Api\SavedPostsController@destroy');
 Route::get('savedpost/check/{st_id}/{post_id}', 'Api\SavedPostsController@check');
+
+Route::get('recents/{student_id}', 'Api\RecentController@get');
+
+Route::get('university/{code}', 'Api\UniversityController@get_uni');

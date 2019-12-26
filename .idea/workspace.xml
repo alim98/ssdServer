@@ -4,7 +4,8 @@
     <list default="true" id="52992def-ccda-4464-893a-67d3bef8bf4e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SavedPostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SavedPostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -164,8 +165,21 @@
       <workItem from="1576777970063" duration="73000" />
       <workItem from="1576863086904" duration="6092000" />
       <workItem from="1577001370911" duration="1394000" />
-      <workItem from="1577133331213" duration="491000" />
+      <workItem from="1577133331213" duration="2844000" />
+      <workItem from="1577178856127" duration="1210000" />
+      <workItem from="1577261008165" duration="401000" />
+      <workItem from="1577261556939" duration="5620000" />
+      <workItem from="1577309132632" duration="2215000" />
+      <workItem from="1577361254953" duration="2014000" />
     </task>
+    <task id="LOCAL-00001" summary="adding saving post and solving some bugs">
+      <created>1577133893923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577133893923</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,5 +197,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding saving post and solving some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding saving post and solving some bugs" />
   </component>
 </project>

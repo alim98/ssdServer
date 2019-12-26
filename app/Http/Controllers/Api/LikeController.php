@@ -98,11 +98,12 @@ class LikeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($student_id, $post_id)
     {
         //
+        $matchthese=['post_id'=>$post_id, 'student_id'=>$student_id];
 
-        $like=Like::where('like_id', $id);
+        $like=Like::where($matchthese);
         if ($like->delete()){
             return response()->json(['response'=>'success'], 200);
         }else{

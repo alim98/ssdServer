@@ -100,7 +100,8 @@ class  StudentController extends Controller
         $student=Student::where('phone_number', $id)->first();
         $header = $request->bearerToken();
         if ($header==$student->api_token){
-            return response()->json($student->posts, 200);
+            $post=$student->posts;
+            return response()->json( $post, 200);
         }
     }
 
