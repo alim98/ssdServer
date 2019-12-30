@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Follow;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Student;
@@ -98,20 +99,20 @@ class PostController extends Controller
         //
         $post = Post::find($id);
         $student = Student::where('phone_number', $request->student_id);
-            $post->desc = $request->desc;
-            $file = $request->file('profile_url');
-            if ($file != null) {
-                $file_name = public_path('\images') . 'image_' . $post->id . '.jpg';
-                $post->profile_url = $file_name;
+        $post->desc = $request->desc;
+        $file = $request->file('profile_url');
+        if ($file != null) {
+            $file_name = public_path('\images') . 'image_' . $post->id . '.jpg';
+            $post->profile_url = $file_name;
 
-                $file->move(public_path('\images'), $file_name);
-            }
+            $file->move(public_path('\images'), $file_name);
+        }
 
-            if ($post->save()) {
-                return response()->json(['response' => 'success'], 200);
-            } else {
-                return response()->json(['response' => 'Error'], 500);
-            }
+        if ($post->save()) {
+            return response()->json(['response' => 'success'], 200);
+        } else {
+            return response()->json(['response' => 'Error'], 500);
+        }
 
 
     }
@@ -128,11 +129,35 @@ class PostController extends Controller
         //
     }
 
-    public function get_posts_of_st($phone_number)
+    public function get_posts_of_followings($phone_number, Request $request)
     {
-        //****unrecommend
-        $post = Post::all();
-        return response()->json(['posts' => $post], 200);
+        $header = $request->bearerToken();
+        $student = Student::where('phone_number', $phone_number)->first();
+        if ($student==null)
+        {
+            return response('student not found', 404);
+        }
+        if ($student->api_token == $header)
+        {
+            $follow=Follow::where('follower_id', $phone_number)->get();
+            if ($follow==null)
+            {
+                return response('followings is empty', 500);
+            }
+            $post=null;
+            for($i=0; $i<$follow->count();$i++)
+            {
+                $followings[$i]=$follow[$i]->following_id;
+                $post[$i]=Post::where('student_id', $followings[$i])->get();
+
+            }
+            return response()->json( $post[0], 200);
+
+
+        }else{
+            return response('Error in authorization!', 442);
+        }
+
     }
 
     public function update_likes_count(Request $request, $id)

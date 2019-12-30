@@ -22,7 +22,11 @@ class CreateStudentsTable extends Migration
             $table->string('api_token', 80)->unique()->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('full_name');
+            $table->string('grade')->nullable();
             $table->string('profile_url')->nullable();
+            $table->smallInteger('followers_count')->default(0);
+            $table->smallInteger('followings_count')->default(0);
+            $table->smallInteger('posts_count')->default(0);
             $table->string('field')->nullable();
             $table->smallInteger('uni_code')->unsigned()->nullable();
 

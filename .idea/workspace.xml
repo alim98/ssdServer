@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52992def-ccda-4464-893a-67d3bef8bf4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Recent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_081528_create_recents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/imagesimage_5e0a419306dc6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/imagesimage_5e0a4243b46f5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -23,7 +29,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
@@ -122,6 +129,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -171,7 +179,11 @@
       <workItem from="1577261008165" duration="401000" />
       <workItem from="1577261556939" duration="5620000" />
       <workItem from="1577309132632" duration="2215000" />
-      <workItem from="1577361254953" duration="2014000" />
+      <workItem from="1577361254953" duration="10055000" />
+      <workItem from="1577445557426" duration="1171000" />
+      <workItem from="1577518850741" duration="10218000" />
+      <workItem from="1577555716507" duration="669000" />
+      <workItem from="1577730791575" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="adding saving post and solving some bugs">
       <created>1577133893923</created>
@@ -180,7 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577133893923</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="profile server and some changes in like and comment">
+      <created>1577372646378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577372646379</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add university">
+      <created>1577372680642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577372680642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +226,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="adding saving post and solving some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding saving post and solving some bugs" />
+    <MESSAGE value="profile server and some changes in like and comment" />
+    <MESSAGE value="add university" />
+    <option name="LAST_COMMIT_MESSAGE" value="add university" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ssd@phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1577526679978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

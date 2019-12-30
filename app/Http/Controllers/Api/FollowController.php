@@ -11,8 +11,8 @@ class FollowController extends Controller
     //
     public function is_followed($follower_id, $following_id)
     {
-        $follow = Follow::where(['follower_id' => $follower_id],
-            ['following_id' => $following_id])->first();
+        $matchThese=['follower_id'=>$follower_id, 'following_id'=>$following_id];
+        $follow = Follow::where($matchThese)->first();
         if ($follow!=null){
             return response()->json(['success'=>true], 200);
         }else{
@@ -32,8 +32,9 @@ class FollowController extends Controller
 
     public function unfollow($follower_id, $following_id)
     {
-        $follow = Follow::where(['follower_id' => $follower_id],
-            ['following_id' => $following_id]);
+        $matchThese=['follower_id'=>$follower_id, 'following_id'=>$following_id];
+
+        $follow = Follow::where($matchThese);
         if ($follow->delete()) {
             return response()->json(['success'=>true], 200);
         } else {

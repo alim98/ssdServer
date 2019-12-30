@@ -141,5 +141,20 @@ class  StudentController extends Controller
         }
     }
 
+    public function get_public_info($id)
+    {
+        $student=Student::where('phone_number', $id)->first();
+        $stpub=new Student();
+        $stpub->first_name=$student->first_name;
+        $stpub->last_name=$student->last_name;
+        $stpub->username=$student->username;
+        $stpub->profile_url=$student->profile_url;
+        $stpub->uni_code=$student->uni_code;
+        $stpub->created_at=$student->created_at;
+        $stpub->updated_at=$student->updated_at;
+
+        return response()->json($stpub, 200);
+    }
+
 
 }
