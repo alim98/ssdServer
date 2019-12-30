@@ -6,6 +6,8 @@ use App\Follow;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Student;
+use App\Tag;
+use App\TagPost;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -41,19 +43,63 @@ class PostController extends Controller
         //
         $post = new Post();
         $post->id = uniqid();
+        $base_post_id=$post->id;
         $post->title = $request->title;
         $post->desc = $request->desc;
         $post->student_id = $request->student_id;
         $file = $request->file('profile_url');
         if ($file != null) {
-            $file_name = public_path('\images') . 'image_' . $post->id . '.jpg';
+            $file_name = public_path('\jozve') . '\jozva_' . $post->id . '.'.$file->getClientOriginalExtension();
             $post->profile_url = $file_name;
 
-            $file->move(public_path('\images'), $file_name);
+            $file->move(public_path('\jozve'), $file_name);
 
         }
+        $tags=$request->tags;
+        if ($tags!=null)
+        {
+            $tags_array=explode(" ", $tags);
 
+        }
         if ($post->save()) {
+            if ($tags!=null)
+            {
+                for($i=0 ; $i<count($tags_array);$i++)
+                {
+                    $existing_tag=Tag::where('title', $tags_array[$i])->first();
+                    //if tag dose'nt exists so create one in tags table
+                    if ($existing_tag==null){
+                        $new_tag=new Tag();
+                        $new_tag->tag_id=uniqid();
+                        $base_tag_id=$new_tag->tag_id;
+                        $new_tag->title=$tags_array[$i];
+                        if ($new_tag->save())
+                        {
+                            $tag_post=new TagPost();
+                            $tag_post->post_id=$base_post_id;
+                            $tag_post->tag_id=$base_tag_id;
+                            if ($tag_post->save() && $i==count($tags_array)-1)
+                            {
+
+                                return response()->json(['response'=>'success'], 200);
+                            }
+                        }
+                        //if tag title exists in tagstable so don't create new tag and just reference that to new tag_post relation
+                    }else{
+                        $tag_post=new TagPost();
+                        $tag_post->post_id=$base_post_id;
+                        $tag_post->tag_id=$existing_tag->tag_id;
+                        if ($tag_post->save() && $i==count($tags_array)-1)
+                        {
+
+                            return response()->json(['response'=>'success'], 200);
+                        }
+                    }
+
+
+                }
+            }
+
             return response()->json(['response' => 'success'], 200);
         } else {
             return response()->json(['response' => 'Error'], 500);
