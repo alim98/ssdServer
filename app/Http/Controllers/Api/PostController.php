@@ -62,6 +62,7 @@ class PostController extends Controller
 
         }
         if ($post->save()) {
+            $this->increase_posts_count($post->student_id);
             if ($tags!=null)
             {
                 for($i=0 ; $i<count($tags_array);$i++)
@@ -227,4 +228,27 @@ class PostController extends Controller
         return response()->json($comments, 200);
 
     }
+
+    private function increase_posts_count($student_id)
+    {
+        $student = Student::where('phone_number', $student_id)->first();
+        $student->posts_count = $student->posts_count + 1;
+        if ($student->save()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private function decrease_posts_count($student_id)
+    {
+        $student = Student::where('phone_number', $student_id)->first();
+        $student->posts_count = $student->posts_count - 1;
+        if ($student->save()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

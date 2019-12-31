@@ -19,7 +19,10 @@ class CreateJozveTable extends Migration
             $table->string('desc')->nullable();
             $table->string('profile_url')->nullable();
             $table->smallInteger('likes_count')->unsigned()->default(0);
-            $table->bigInteger('student_id')->unsigned();
+            $table->integer('student_id')->unsigned();
+            $table->smallInteger('size')->default(0);
+            $table->smallInteger('comments_count')->default(0);
+
             //size
             //grade
             //major

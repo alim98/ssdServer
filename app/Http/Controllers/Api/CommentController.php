@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Comment;
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -19,9 +20,16 @@ class CommentController extends Controller
         $comment->comment=$request->comment;
         $comment->timestamps;
         if ($comment->save()){
-            return response()->json(['success'=>true], 200);
+            if ($this->increase_comments_count($comment->post_id))
+            {
+                return response()->json(['success'=>true], 200);
+            }else{
+                $comment->delete();
+                return response()->json(['success'=>false], 443);
+                //443 means error in increasing
+            }
         }else{
-            return response()->json(['success'=>false], 200);
+            return response()->json(['success'=>false], 500);
 
         }
     }
@@ -52,6 +60,18 @@ class CommentController extends Controller
 
         }
     }
-
+    private function increase_comments_count($post_id)
+    {
+        $post=Post::find($post_id)->first();
+        $last_comments_count=$post->comments_count;
+        $new_comments_cont=$last_comments_count+1;
+        $post->comments_count=$new_comments_cont;
+        if ($post->save())
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

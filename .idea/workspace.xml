@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52992def-ccda-4464-893a-67d3bef8bf4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/TagPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_30_194152_create_tags_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_30_194501_create_post_tag_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/image_5e0a481d5e3edtmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/image_5e0a491c0112b.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/image_5e0a4a47979be.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/image_5e0a4beae97b2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva5e0a4c2eeee15.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_27_220539_create_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_30_175623_create_jozve_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_30_175623_create_jozve_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_05_084850_create_like_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_05_084850_create_like_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_090830_create_follow_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_090830_create_follow_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_13_192713_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_13_192713_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_19_123514_create_savedposts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_19_123514_create_savedposts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_081528_create_recents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_081528_create_recents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +186,8 @@
       <workItem from="1577445557426" duration="1171000" />
       <workItem from="1577518850741" duration="10218000" />
       <workItem from="1577555716507" duration="669000" />
-      <workItem from="1577730791575" duration="6622000" />
+      <workItem from="1577730791575" duration="6667000" />
+      <workItem from="1577780349188" duration="6192000" />
     </task>
     <task id="LOCAL-00001" summary="adding saving post and solving some bugs">
       <created>1577133893923</created>
@@ -221,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577732055074</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add tagging feature">
+      <created>1577741655425</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577741655425</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +257,8 @@
     <MESSAGE value="add university" />
     <MESSAGE value="Improvement where statements, debug store file without pic, get followings posts, get student public info, add recent" />
     <MESSAGE value=" add recent controller" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add recent controller" />
+    <MESSAGE value="add tagging feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tagging feature" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ssd@phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1577526679978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

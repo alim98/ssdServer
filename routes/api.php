@@ -35,7 +35,8 @@ Route::put('post/update_likes_count/{id}', 'Api\PostController@update_likes_coun
 Route::get('post/comments/{id}', 'Api\PostController@get_comments');
 
 
-Route::resource('like', 'Api\LikeController');
+//Route::resource('like', 'Api\LikeController');
+Route::post('like', 'Api\LikeController@store');
 Route::delete('like/{student_id}/{post_id}','Api\LikeController@destroy');
 Route::get('like/{student_id}/{post_id}', 'Api\LikeController@is_liked');
 Route::get('like/get_like/{student_id}/{post_id}','Api\LikeController@get_like' );

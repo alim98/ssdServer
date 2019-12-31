@@ -16,7 +16,7 @@ class CreateLikeTable extends Migration
         Schema::create('like', function (Blueprint $table) {
             $table->uuid('like_id')->primary();
             $table->uuid('post_id');
-            $table->bigInteger('student_id')->unsigned();
+            $table->integer('student_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');

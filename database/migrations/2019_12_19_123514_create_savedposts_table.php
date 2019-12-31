@@ -15,7 +15,7 @@ class CreateSavedpostsTable extends Migration
     {
         Schema::create('savedposts', function (Blueprint $table) {
             $table->uuid('saved_id')->primary();
-            $table->bigInteger('student_id')->unsigned();
+            $table->integer('student_id')->unsigned();
             $table->uuid('post_id');
             $table->timestamps();
 

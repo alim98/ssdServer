@@ -17,7 +17,7 @@ class CreateRecentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('action');
             $table->string('post_id');
-            $table->bigInteger('student_id');
+            $table->integer('student_id');
             $table->timestamps();
         });
     }
