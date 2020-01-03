@@ -34,7 +34,6 @@ Route::get('student/{id}/followings/posts', 'Api\PostController@get_posts_of_fol
 Route::put('post/update_likes_count/{id}', 'Api\PostController@update_likes_count');
 Route::get('post/comments/{id}', 'Api\PostController@get_comments');
 
-
 //Route::resource('like', 'Api\LikeController');
 Route::post('like', 'Api\LikeController@store');
 Route::delete('like/{student_id}/{post_id}','Api\LikeController@destroy');
@@ -60,3 +59,5 @@ Route::get('savedpost/check/{st_id}/{post_id}', 'Api\SavedPostsController@check'
 Route::get('recent/{student_id}', 'Api\RecentController@get');
 
 Route::get('university/{code}', 'Api\UniversityController@get_uni');
+
+Route::get('tag/{tag}', 'api\PostController@search_by_tag');

@@ -119,6 +119,9 @@ class PostController extends Controller
         //
         $post = Post::find($id);
         if ($post != null) {
+            $tags=null;
+            $tags=$this->get_tags($id);
+            $post->tags=$tags->original;
             return response()->json($post, 200);
         }
     }
@@ -129,10 +132,7 @@ class PostController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -171,10 +171,7 @@ class PostController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
 
     public function get_posts_of_followings($phone_number, Request $request)
     {
@@ -196,6 +193,15 @@ class PostController extends Controller
             {
                 $followings[$i]=$follow[$i]->following_id;
                 $post[$i]=Post::where('student_id', $followings[$i])->get();
+                for ($j=0;$j<count($post[$i]);$j++)
+                {
+                    $tags=$this->get_tags($post[$i][$j]->id);
+                    if (count($tags->original)>0)
+                    {
+                        $post[$i][$j]->tags=$tags->original;
+
+                    }
+                }
 
             }
             return response()->json( $post[0], 200);
@@ -251,4 +257,35 @@ class PostController extends Controller
         }
     }
 
+    private function get_tags($id)
+    {
+        $post=Post::find($id);
+        $post_tags=$post->post_tags;
+        $tags_id=null;
+        $tags=null;
+        for($i=0; $i<count($post_tags);$i++){
+            $tags_id[$i]=$post_tags[$i]->tag_id;
+            $tags[$i]=Tag::find($tags_id[$i])->title;
+        }
+        return response()->json($tags, 200);
+    }
+
+
+    public function search_by_tag($tag)
+    {
+        $tag=Tag::where('title', $tag)->first()->tag_id;
+        $tag_post=TagPost::where('tag_id', $tag)->get();
+        $post_id=null;
+        for ($i=0;$i<count($tag_post);$i++)
+        {
+            $post_id[$i]=$tag_post[$i]->post_id;
+            $post[$i]=Post::find($post_id[$i]);
+        }
+        for ($j=0;$j<count($post);$j++)
+        {
+            $tags=$this->get_tags($post[$j]->id);
+           $post[$j]->tags=$tags->original;
+        }
+        return $post;
+    }
 }

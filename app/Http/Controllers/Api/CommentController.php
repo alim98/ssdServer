@@ -62,7 +62,7 @@ class CommentController extends Controller
     }
     private function increase_comments_count($post_id)
     {
-        $post=Post::find($post_id)->first();
+        $post=Post::find($post_id);
         $last_comments_count=$post->comments_count;
         $new_comments_cont=$last_comments_count+1;
         $post->comments_count=$new_comments_cont;

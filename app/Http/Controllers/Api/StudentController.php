@@ -152,7 +152,9 @@ class  StudentController extends Controller
         $stpub->uni_code = $student->uni_code;
         $stpub->created_at = $student->created_at;
         $stpub->updated_at = $student->updated_at;
-
+        $stpub->followers_count=$student->followers_count;
+        $stpub->followings_count=$student->followings_count;
+        $stpub->posts_count=$student->posts_count;
         return response()->json($stpub, 200);
     }
 

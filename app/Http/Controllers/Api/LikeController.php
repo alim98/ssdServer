@@ -88,7 +88,7 @@ class LikeController extends Controller
 
     private function increase_likes_count($post_id)
     {
-        $post = Post::find($post_id)->first();
+        $post = Post::find($post_id);
         $post->likes_count = $post->likes_count + 1;
         if ($post->save()) {
             return true;
@@ -100,7 +100,7 @@ class LikeController extends Controller
     private function decrease_likes_count($post_id)
     {
         $post = Post::find($post_id)->first();
-        $post->likes_count = $post->likes_count - 1;
+        $post->likes_count = $post->likes_count;
         if ($post->save()) {
             return true;
         } else {
