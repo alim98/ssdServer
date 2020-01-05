@@ -41,12 +41,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $student=Student::where('phone_number', $request->student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $post = new Post();
         $post->id = uniqid();
         $base_post_id=$post->id;
         $post->title = $request->title;
         $post->desc = $request->desc;
         $post->student_id = $request->student_id;
+        $post->size=$request->size;
         $file = $request->file('profile_url');
         if ($file != null) {
             $file_name = public_path('\jozve') . '\jozva_' . $post->id . '.'.$file->getClientOriginalExtension();
@@ -144,8 +151,14 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+
         $post = Post::find($id);
-        $student = Student::where('phone_number', $request->student_id);
+        $student=Student::where('phone_number', $request->student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $post->desc = $request->desc;
         $file = $request->file('profile_url');
         if ($file != null) {
@@ -213,18 +226,7 @@ class PostController extends Controller
 
     }
 
-    public function update_likes_count(Request $request, $id)
-    {
-        $post = Post::find($id);
 
-        $post->likes_count = $request->likes_count;
-
-        if ($post->save()) {
-            return response()->json(['response' => 'success'], 200);
-        } else {
-            return response()->json(['response' => 'Error'], 500);
-        }
-    }
 
     public function get_comments($id)
     {

@@ -23,6 +23,12 @@ class FollowController extends Controller
     }
     public function follow(Request $request)
     {
+        $student=Student::where('phone_number', $request->follower_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $follow = new Follow();
         $follow->follower_id = $request->follower_id;
         $follow->following_id = $request->following_id;
@@ -42,8 +48,14 @@ class FollowController extends Controller
         }
     }
 
-    public function unfollow($follower_id, $following_id)
+    public function unfollow($follower_id, $following_id, Request $request)
     {
+        $student=Student::where('phone_number', $follower_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $matchThese=['follower_id'=>$follower_id, 'following_id'=>$following_id];
 
         $follow = Follow::where($matchThese);

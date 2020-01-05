@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Student;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -13,6 +14,12 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        $student=Student::where('phone_number', $request->student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $comment =new Comment();
         $comment->comment_id=uniqid();
         $comment->post_id=$request->post_id;
@@ -50,9 +57,16 @@ class CommentController extends Controller
 
 
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
-        $comment=Comment::where('comment_id', $id);
+
+        $comment=Comment::where('comment_id', $id)->first();
+        $student=Student::where('phone_number', $comment->student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         if ($comment->delete()){
             return response()->json(['success'=>true], 200);
         }else{

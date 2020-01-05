@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Like;
 use App\Post;
+use App\Student;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
@@ -13,7 +14,12 @@ class LikeController extends Controller
     public function store(Request $request)
     {
         //
-
+        $student=Student::where('phone_number', $request->student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $like = new Like();
         $like->like_id = uniqid();
         $like->post_id = $request->post_id;
@@ -45,9 +51,15 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($student_id, $post_id)
+    public function destroy($student_id, $post_id, Request $request)
     {
         //
+        $student=Student::where('phone_number',$student_id)->first();
+        $header=$request->bearerToken();
+        if($student->api_token!=$header)
+        {
+            return response()->json(['response'=>'error in Authorization'], 442);
+        }
         $matchthese = ['post_id' => $post_id, 'student_id' => $student_id];
 
         $like = Like::where($matchthese);

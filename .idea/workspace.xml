@@ -2,22 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52992def-ccda-4464-893a-67d3bef8bf4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/PostTag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca6971bd8d.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca6be01032.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca6ef74850.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca78debbdb.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca7d5ad345.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca8df33132.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0ca9962a647.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0dd34dcc7c2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0f233a48fd4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0f247059a18.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0f259ce439c.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0f26492dcfb.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e0f26fd37ee9.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e11ee161acbd.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/jozve/jozva_5e11eef5a404a.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FollowController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LikeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/RecentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/RecentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +191,10 @@
       <workItem from="1577820677877" duration="673000" />
       <workItem from="1577949485399" duration="1496000" />
       <workItem from="1577957789835" duration="6348000" />
-      <workItem from="1578046660314" duration="1289000" />
+      <workItem from="1578046660314" duration="3249000" />
+      <workItem from="1578128155379" duration="2759000" />
+      <workItem from="1578160500947" duration="5879000" />
+      <workItem from="1578231707980" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="adding saving post and solving some bugs">
       <created>1577133893923</created>
@@ -244,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577790667538</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="debug likes count.&#10;find($id)-&gt;first();-&gt;&gt;&gt;&gt;&gt;&gt;&gt;is incorrect&#10;find($id); -------------&gt;correct">
+      <created>1578049588271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578049588271</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +280,8 @@
     <MESSAGE value=" add recent controller" />
     <MESSAGE value="add tagging feature" />
     <MESSAGE value="add following and follower and posts count to student table and controller&#10;add like and comment count to post controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="add following and follower and posts count to student table and controller&#10;add like and comment count to post controller" />
+    <MESSAGE value="debug likes count.&#10;find($id)-&gt;first();-&gt;&gt;&gt;&gt;&gt;&gt;&gt;is incorrect&#10;find($id); -------------&gt;correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug likes count.&#10;find($id)-&gt;first();-&gt;&gt;&gt;&gt;&gt;&gt;&gt;is incorrect&#10;find($id); -------------&gt;correct" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ssd@phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1577526679978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
